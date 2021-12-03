@@ -1,0 +1,13 @@
+function canJump(nums: number[]): boolean {
+var maxMove=0;
+    
+    for(var i=0;i<nums.length;i++)
+        {
+            if(i>maxMove)
+                {
+                    return false;
+                }
+            maxMove=Math.max(maxMove,i+nums[i]);
+        }
+    return true;
+};
