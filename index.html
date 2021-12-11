@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function submitForm(clicked_id) {
+            console.log("Inside submit form");
+            var ans = null;
+            var num1 = eval(document.getElementById("num1").value);
+            var num2 = eval(document.getElementById("num2").value);
+
+            var answer = document.getElementById("answer");
+            switch (clicked_id) {
+                case 'plus': ans = num1 + num2;
+                    break;
+                case 'minus': ans = num1 - num2;
+                    break;
+                case 'mul': ans = num1 * num2;
+                    break;
+                case 'div': ans = num1 / num2;
+                    break;
+            }
+
+            answer.setAttribute('value', ans);
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <h2>Form</h2>
+    <form>
+        <input type="text" id="num1" name="num1"><br><br>
+        <input type="text" id="num2" name="num2"><br><br>
+        <input type="button" id="plus" value="+" onclick="submitForm(this.id)">
+        <input type="button" id="minus" value="-" onclick="submitForm(this.id)">
+        <input type="button" id="mul" value="*" onclick="submitForm(this.id)">
+        <input type="button" id="div" value="/" onclick="submitForm(this.id)">
+    </form>
+    <input type="text" id="answer" value="">
+</body>
+
+</html>
