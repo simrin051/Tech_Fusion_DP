@@ -8,7 +8,7 @@ function maximalSquare(arr: string[][]): number {
 
  var ans=0;
 
-  for(var i=arr.length-1;i>=0;i--) {
+  for(var i=arr.length-1;i>=0;i--)    {
 		for(var j=arr[0].length-1;j>=0;j--) {
 			if(i==arr.length-1 && j==arr[0].length-1) {
 				dp[i][j]=Number(arr[i][j]);
