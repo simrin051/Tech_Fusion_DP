@@ -1,0 +1,56 @@
+package com.main.dp.basics;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class DifferentWaysToAddPara {
+	
+	static List<Integer> results=new ArrayList<Integer>();
+	public static void main(String[] args) {
+		String input="2-1-1";
+		results=diffWaysToCompute(input);
+		System.out.println(results);
+	}
+
+    public static List<Integer> diffWaysToCompute(String input) {
+    	List<Integer> result = new LinkedList<Integer>();
+        for (int i = 0; i < input.length(); i ++) {
+            char c = input.charAt(i);
+            if (c == '+' || c == '-' || c == '*') {
+                List<Integer> left = diffWaysToCompute(input.substring(0, i));
+                List<Integer> right = diffWaysToCompute(input.substring(i + 1));
+                for (Integer l:left) {
+                    for (Integer r:right) {
+                    	System.out.println(l+" "+r);
+                        result.add(calc(l, r, c));
+                    }
+                }
+            }
+        }	
+        if (results.size()==0) {
+            results.add(Integer.parseInt(input));
+        }
+    	return results;
+    }
+    
+    private static int calc(int num1, int num2, char c) {
+    	if(c=='*')
+    	{
+    		return num1*num2;
+    	}
+    	else if(c=='/') 
+    	{
+    		return num1/num2;
+    	}
+    	else if(c=='-') 
+    	{
+    		return num1-num2;
+    	}
+    	else if(c=='+')
+    	{
+    		return num1+num2;
+    	}
+    	return 0;
+    }
+}
