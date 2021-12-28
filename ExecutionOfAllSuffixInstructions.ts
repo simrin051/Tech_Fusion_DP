@@ -50,5 +50,4 @@ function executeInstructions(n: number, startPos: number[], s: string ): void {
   console.log(counts);  
 };
 
-
 executeInstructions(3,[0,1],"RRDDLU");
