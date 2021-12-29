@@ -1,0 +1,31 @@
+<html>
+<script>
+
+    function submitForm(clicked_id, fontSize) {
+
+        var txt = document.getElementById("text");
+        var style = txt.style.fontSize;
+        var currentSize = parseFloat(style);
+        txt.style.fontSize = (currentSize + 2) + 'px';
+
+        switch (clicked_id) {
+            case 'plus': txt.style.fontSize = (currentSize + 2) + 'px';
+                break;
+            case 'minus': txt.style.fontSize = (currentSize - 2) + 'px';
+                break;
+        }
+        document.getElementById("message").innerText = document.getElementById("text").value;
+        document.getElementById("message").style.fontSize = txt.style.fontSize;
+    }
+</script>
+
+<body>
+    <form>
+        <input type="text" id="text" name="text" style="font-size: 20px;"><br><br>
+        <input type="button" id="plus" value="+" onclick="submitForm(this.id,2)">
+        <input type="button" id="minus" value="-" onclick="submitForm(this.id,2)">
+    </form>
+    <div id="message">SDD</div>
+</body>
+
+</html>
