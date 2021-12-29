@@ -5,7 +5,10 @@ public class ValidSquare {
 	public static void main(String[] args) {
 		int[] p1 = {0,0}, p2 = {1,1}, p3 = {1,0}, p4 = {0,1};	
 		int[][] p= {p1,p2,p3,p4};
-		/**   After sorting the below matrix view
+		// If x coordinate is same then sort using y coordinate
+		Arrays.sort(p,(l1,l2)->(l1[0]==l2[0])?(l1[1]-l2[1]):(l1[0]-l2[0]));
+        
+		/**   After sorting the below matrix view 
 		 *    p2   p3    
 		 *    ******
 		 *    *    *
@@ -14,8 +17,6 @@ public class ValidSquare {
 		 *    p0   p1
 		 */
 		
-		// If x coordinate is same then sort using y coordinate
-		Arrays.sort(p,(l1,l2)->(l1[0]==l2[0])?(l1[1]-l2[1]):(l1[0]-l2[0]));
 		System.out.println("After sorting");
 		for(int i=0;i<p.length;i++) {
 			for(int j=0;j<p[0].length;j++) {
