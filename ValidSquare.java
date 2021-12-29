@@ -5,7 +5,7 @@ public class ValidSquare {
 	public static void main(String[] args) {
 		int[] p1 = {0,0}, p2 = {1,1}, p3 = {1,0}, p4 = {0,1};	
 		int[][] p= {p1,p2,p3,p4};
-		/**
+		/**   After sorting the below matrix view
 		 *    p2   p3    
 		 *    ******
 		 *    *    *
