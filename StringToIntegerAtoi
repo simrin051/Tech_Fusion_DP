@@ -1,0 +1,48 @@
+package com.main.dl;
+
+public class StringToIntegerAtoi {
+public static void main(String[] args) {
+	int sign=1,result=0;
+	String s="4193 with words";
+	int num= (int)myAtoi(s);
+	System.out.println("Number "+(num));
+	
+}
+
+public static double myAtoi(String num) {
+	double max= Math.pow(2, 31) - 1;
+	double min= -Math.pow(-2, 31);
+	int index=0, n=num.length(),sign=1,result=0;
+	char[] chars=num.toCharArray();
+	
+	while(index < n && chars[index]==' ') {
+		System.out.println("space is found");
+		index++;
+	}
+	
+    if(index < n && chars[index]=='+') {
+    	sign=1;
+    	index++;
+    }
+	
+    if(index < n && chars[index]=='-') {
+    	System.out.println("- is found");
+    	sign=-1;
+    	index++;
+    }
+	
+    while(index <n && chars[index]>='0' && chars[index] <='9') {
+    	int digit=chars[index]-'0';
+    	 if ((result > Math.floor(max / 10)) || 
+    	            (result == Math.floor(max / 10) && digit > max % 10)) {  
+    		return sign==1?max:min;
+    	 }
+    	 result = 10 * result + digit;
+         index++;
+    	 }
+    
+    
+	
+	return sign* result;
+}
+}
