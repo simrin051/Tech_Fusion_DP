@@ -1,0 +1,48 @@
+function countElements(nums: number[]): number {
+      nums.sort((n1, n2) => n1 - n2);
+        var n=nums.length,count=0;
+        
+        for(var i=1;i<n-1;i++){
+            var low=0,high=n-1;
+            while(low<high){
+                if(nums[i]>nums[low] && nums[i]<nums[high]){
+                    count++;
+                    break;
+                }
+                low++;
+            }
+        }
+        
+        return count;
+};
+
+
+OR  IN JAVA 
+
+
+class Solution {
+    public int countElements(int[] nums) {
+     int count=0,min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+    for(int i=0;i<nums.length;i++) {
+        min=Math.min(min,nums[i]);
+        max=Math.max(max,nums[i]);
+    }
+ 
+    
+    for(int i=0;i<nums.length;i++) {
+        if(nums[i]>min && nums[i]<max) {
+            ++count;
+        }
+    }
+    return count;
+    
+    
+    }
+}
+
+Point To Note: 
+
+Number.MINVALUE is NOT same as Integer.MIN_VALUE
+
+Number.MAXVALUE is NOT same as Integer.MAX_VALUE
+
